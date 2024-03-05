@@ -38,7 +38,7 @@ class _nelithState extends State<nelith> {
 //this is the home//
 
       drawer: Drawer(
-        backgroundColor: Color.fromRGBO(255, 138, 0, 1),
+        backgroundColor: Color.fromRGBO(232, 99, 70, 1),
         child: ListView(
           children: [
             ListTile(
