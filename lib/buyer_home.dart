@@ -80,40 +80,40 @@ class _nelithState extends State<nelith> {
             child: Row(
               children: [
               Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image(image: AssetImage('assets/house.png')),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      style:TextStyle(fontWeight: FontWeight.bold),
-                      'Domestic Services'
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image(image: AssetImage('assets/house.png')),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        style:TextStyle(fontWeight: FontWeight.bold),
+                        'Domestic Services'
+                      ),
+                    ],
                     ),
                   ],
-                  ),
-                ],
-              ),
-              height: 160,
-              width: 160,
-              decoration: BoxDecoration(
-              color: Color.fromRGBO(253, 255, 241, 1),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                width: 2,
-                color: Color.fromRGBO(255, 138, 0, 1),
+                ),
+                height: 160,
+                width: 160,
+                decoration: BoxDecoration(
+                color: Color.fromRGBO(253, 255, 241, 1),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  width: 2,
+                  color: Color.fromRGBO(255, 138, 0, 1),
               ),
               ),
-              
+
                       ),],
             ),
             ),
@@ -122,16 +122,16 @@ class _nelithState extends State<nelith> {
               onTap: () {
                 print('Hello');
               },
-            child: Container(
-              child: Image(image: AssetImage('assets/party.png')),
-                height: 160,
-                width: 160,
-              decoration: BoxDecoration(
-              color: Color.fromRGBO(253, 255, 241, 1),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-              width: 2,
-              color: Color.fromRGBO(255, 138, 0, 1),
+              child: Container(
+                child: Image(image: AssetImage('assets/party.png')),
+                  height: 160,
+                  width: 160,
+                decoration: BoxDecoration(
+                color: Color.fromRGBO(253, 255, 241, 1),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                width: 2,
+                color: Color.fromRGBO(255, 138, 0, 1),
             ),
           ),
         ),
