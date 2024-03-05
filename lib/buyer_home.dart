@@ -98,7 +98,7 @@ class _nelithState extends State<nelith> {
                     Text(
                       style:TextStyle(fontWeight: FontWeight.bold),
                       'Domestic Services'
-                      ),
+                    ),
                   ],
                   ),
                 ],
@@ -112,8 +112,8 @@ class _nelithState extends State<nelith> {
                 width: 2,
                 color: Color.fromRGBO(255, 138, 0, 1),
               ),
-                        ),
-                        
+              ),
+              
                       ),],
             ),
             ),
