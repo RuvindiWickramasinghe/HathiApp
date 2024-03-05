@@ -431,6 +431,12 @@ class _nelithState extends State<nelith> {
         ),
         ]
       ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: const Icon(Icons.add),
+        backgroundColor: Color.fromRGBO(108, 181, 35, 1),
+      ),
     );
   }
 }
