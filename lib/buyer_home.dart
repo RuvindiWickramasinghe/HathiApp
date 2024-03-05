@@ -34,7 +34,7 @@ class _nelithState extends State<nelith> {
             ),
         ],
       ),
-
+//this is the home//
       drawer: Drawer(
         backgroundColor: Color.fromRGBO(255, 138, 0, 1),
         child: ListView(
@@ -65,6 +65,7 @@ class _nelithState extends State<nelith> {
         ),
         ),
 
+//this is the body//
       body: 
       Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,7 +95,10 @@ class _nelithState extends State<nelith> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Domestic Services'),
+                    Text(
+                      style:TextStyle(fontWeight: FontWeight.bold),
+                      'Domestic Services'
+                      ),
                   ],
                   ),
                 ],
