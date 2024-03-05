@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: nelith(),
-  ));
-}
-
 class nelith extends StatefulWidget {
   const nelith({super.key});
 
