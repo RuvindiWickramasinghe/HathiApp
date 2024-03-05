@@ -7,7 +7,8 @@ class SellerLoginPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Seller Login'),
       ),
-      body: Center(
+      body:Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -16,7 +17,27 @@ class SellerLoginPage extends StatelessWidget {
               style: TextStyle(fontSize: 24.0),
             ),
             SizedBox(height: 20.0),
-            // Add your login form widgets here
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Username',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 10.0),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+              ),
+              obscureText: true, // Hide the password
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                // Add your login functionality here
+              },
+              child: Text('Login'),
+            ),
           ],
         ),
       ),
