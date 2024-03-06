@@ -32,6 +32,63 @@ class _sellerRegister3State extends State<sellerRegister3> {
               ),
             ],
           ),
+
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(255, 248, 230, 1),
+                      border: Border.all(width: 1,color: Color.fromRGBO(255, 248, 230, 1)),
+                      borderRadius: BorderRadius.all(Radius.circular(100))
+                    ),
+                    padding: EdgeInsets.fromLTRB(10.0,2.0,10.0,2.0),
+                    child: Text(
+                      "3",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(108, 181, 35, 1)
+                        ),
+                      ),
+                  ),
+
+                  Text(
+                    "Step Three",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+              ],
+            ),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(255, 248, 230, 1),
+                      border: Border.all(width: 1,color: Color.fromRGBO(255, 248, 230, 1)),
+                      borderRadius: BorderRadius.all(Radius.circular(100))
+                    ),
+                    padding: EdgeInsets.fromLTRB(10.0,2.0,10.0,2.0),
+                    child: Text(
+                      "3",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(108, 181, 35, 1)
+                        ),
+                      ),
+                  ),
+
+                  Text(
+                    "Step Three",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+              ],
+            ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
