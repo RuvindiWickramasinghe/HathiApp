@@ -41,34 +41,131 @@ class _nelithState extends State<nelith> {
         backgroundColor: Color.fromRGBO(232, 99, 70, 1),
         child: ListView(
           children: [
-            ListTile(
-              titleTextStyle: TextStyle(fontSize: 28,fontWeight: FontWeight.bold,),
-              textColor: Colors.white,
-              trailing: Icon(Icons.arrow_back),iconColor: Colors.white,
-              title: Text("MENU",),
+            InkWell(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0.0,30.0,0.0,15.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        size: 28.0,
+                        color: Colors.white,
+                        ),
+                      ),
+                      Expanded(
+                        flex:3,
+                        child:Text(
+                          "Menu",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold
+                          ),
+                          ),
+                      )
+                  ],
+                ),
+                ),
             ),
-            ListTile(
-              titleTextStyle: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),
-              textColor: Colors.white,
-              trailing: Icon(Icons.home),iconColor: Colors.white,
-              title: Text("HOME"),
-              onTap: () {
-                print("cLICKED");
+
+            InkWell(
+              onTap: (){
+                print("clicked");
               },
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Icon(
+                        Icons.home,
+                        size: 28.0,
+                        color: Colors.white,
+                        ),
+                      ),
+                      Expanded(
+                        flex:2,
+                        child:Text(
+                          "Home",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold
+                          ),
+                          ),
+                      )
+                  ],
+                ),
+                ),
             ),
-            ListTile(
-              
-              titleTextStyle: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),
-              textColor: Colors.white,
-              trailing: Icon(Icons.person),iconColor: Colors.white,
-              title: Text("Profile"),
-              onTap: () {
-                print("cLICKED");
+            
+            InkWell(
+              onTap: (){
+                print("clicked");
               },
-            )
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Icon(
+                        Icons.person,
+                        size: 28.0,
+                        color: Colors.white,
+                        ),
+                      ),
+                      Expanded(
+                        flex:2,
+                        child:Text(
+                          "Profile",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold
+                          ),
+                          ),
+                      )
+                  ],
+                ),
+                ),
+            ),
+
+            SizedBox(height: 450.0,width: 10.0,),
+
+            InkWell(
+              onTap: (){
+                print("clicked");
+              },
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Icon(
+                        Icons.logout,
+                        size: 28.0,
+                        color: Colors.white,
+                        ),
+                      ),
+                      Expanded(
+                        flex:2,
+                        child:Text(
+                          "Logout",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold
+                          ),
+                          ),
+                      )
+                  ],
+                ),
+                ),
+            ),
           ],
         ),
-        ),
+      ),
 
 //this is the body//
       body: 
@@ -85,45 +182,45 @@ class _nelithState extends State<nelith> {
               onTap: () {
                print('Hello');
               },
-            child: Row(
-              children: [
-              Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
+              child: Row(
+                children: [
+                  Container(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Image(image: AssetImage('assets/house.png')),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image(image: AssetImage('assets/house.png')),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            style:TextStyle(fontWeight: FontWeight.bold),
+                            'Domestic Services'
+                          ),
+                        ],
+                        ),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        style:TextStyle(fontWeight: FontWeight.bold),
-                        'Domestic Services'
+                    height: 160,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(253, 255, 241, 1),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        width: 2,
+                        color: Color.fromRGBO(255, 138, 0, 1),
                       ),
-                    ],
                     ),
-                  ],
-                ),
-                height: 160,
-                width: 160,
-                decoration: BoxDecoration(
-                color: Color.fromRGBO(253, 255, 241, 1),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  width: 2,
-                  color: Color.fromRGBO(255, 138, 0, 1),
+                  ),
+                ],
               ),
-              ),
-
-                      ),],
-            ),
             ),
         
             GestureDetector(
