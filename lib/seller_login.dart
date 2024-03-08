@@ -47,7 +47,10 @@ class SellerLoginPage extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       labelText: 'Username',
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                         borderRadius: BorderRadius.circular(8.0),
+                         
+                      ),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     textAlign: TextAlign.center,
@@ -59,29 +62,32 @@ class SellerLoginPage extends StatelessWidget {
                   child: TextField(
                   decoration: InputDecoration(
                   labelText: 'Password',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                     borderRadius: BorderRadius.circular(8.0)
+                  ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
-                    textAlign: TextAlign.center,
+                    
                     obscureText: true, // Hide the password
                   ),
                 ),
                  SizedBox(height: 10.0),
                  Padding(
-                 padding: EdgeInsets.only(right: 50.0), // Add padding to the left
+                 padding: EdgeInsets.only(right: 50.0), 
                  child: Row(
-                 mainAxisAlignment: MainAxisAlignment.end, // Align to the right
+                 mainAxisAlignment: MainAxisAlignment.end, 
                   children: [
                 GestureDetector(
                   onTap: () {
                     // Add functionality for "Forget Password"
                   },
                   child: Text(
-                    'Forget Password',
+                    'Forget Password?',
                     style: TextStyle(
                       color: Colors.black,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Poppins'
                     
                     ),
                   ),
@@ -97,14 +103,47 @@ class SellerLoginPage extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF6CB523),
-                minimumSize: Size(200, 50),
+                minimumSize: Size(300, 50),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.0),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
               ),
-              child: Text('Login')
-              
+              child: Text(
+                'Login',
+                style: TextStyle(
+                 color: Colors.white,
+                 fontFamily: 'Poppins',
+                 ),
+              ),
             ),
+        
+                   SizedBox(height: 20.0),
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  Text(
+                  'Not a Member? ',
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontStyle: FontStyle.italic
+            ),
+           ),
+          GestureDetector(
+        onTap: () {
+        // Add functionality for "Register Now"
+      },
+      child: Text(
+        'Register Now',
+         style: TextStyle(
+         color: Color(0xFF6CB523),
+        fontStyle: FontStyle.italic
+          
+        ),
+      ),
+    ),
+  ],
+),
+        
           ],
         ),
       ),
