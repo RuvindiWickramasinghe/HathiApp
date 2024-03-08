@@ -57,15 +57,38 @@ class SellerLoginPage extends StatelessWidget {
                 SizedBox(
                   width: 325.0,
                   child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     textAlign: TextAlign.center,
                     obscureText: true, // Hide the password
                   ),
                 ),
+                 SizedBox(height: 10.0),
+                 Padding(
+                 padding: EdgeInsets.only(right: 50.0), // Add padding to the left
+                 child: Row(
+                 mainAxisAlignment: MainAxisAlignment.end, // Align to the right
+                  children: [
+                GestureDetector(
+                  onTap: () {
+                    // Add functionality for "Forget Password"
+                  },
+                  child: Text(
+                    'Forget Password',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
+                    
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
             SizedBox(
               height: 20.0),
             ElevatedButton(
