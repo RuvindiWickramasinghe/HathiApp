@@ -57,7 +57,7 @@ class SellerLoginPage extends StatelessWidget {
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                // Add your login functionality here
+                Navigator.push(context, MaterialPageRoute(builder: (context) => nelith()));// Add your login functionality here
               },
               child: Text('Login'),
             ),
