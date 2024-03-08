@@ -41,27 +41,46 @@ class SellerLoginPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20.0),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Username',
-                border: OutlineInputBorder(),
-              ),
-            ),
             SizedBox(height: 10.0),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true, // Hide the password
-            ),
-            SizedBox(height: 20.0),
+               SizedBox(
+                  width: 325.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Username',
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+            SizedBox(height: 10.0),
+                SizedBox(
+                  width: 325.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                    ),
+                    textAlign: TextAlign.center,
+                    obscureText: true, // Hide the password
+                  ),
+                ),
+            SizedBox(
+              height: 20.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => nelith()));// Add your login functionality here
               },
-              child: Text('Login'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF6CB523),
+                minimumSize: Size(200, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+              ),
+              child: Text('Login')
+              
             ),
           ],
         ),
