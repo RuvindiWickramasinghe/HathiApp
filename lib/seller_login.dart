@@ -52,6 +52,12 @@ class SellerLoginPage extends StatelessWidget {
                          borderSide: BorderSide(color: Color(0xFF6CB523)
                          ),
                       ),
+                      focusedBorder: OutlineInputBorder( // Set focused border color
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                      color: Color(0xFF6CB523), // Focused border color
+                 ),
+                ),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     textAlign: TextAlign.center,
@@ -68,6 +74,12 @@ class SellerLoginPage extends StatelessWidget {
                      borderSide: BorderSide(color: Color(0xFF6CB523)
                      ),
                   ),
+                  focusedBorder: OutlineInputBorder( // Set focused border color
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                  color: Color(0xFF6CB523), // Focused border color
+                 ),
+                ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     
