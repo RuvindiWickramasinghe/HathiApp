@@ -9,6 +9,7 @@ class SellerLoginPage extends StatelessWidget {
         title: Text('Seller Login'),
       ),
       body:  SingleChildScrollView(
+        child:Center(
         child:Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -66,6 +67,7 @@ class SellerLoginPage extends StatelessWidget {
         ),
       ),
      ),
+      ),
     );
   }
 }
