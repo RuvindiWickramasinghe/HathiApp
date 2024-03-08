@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'buyer_home.dart';
 
 class SellerLoginPage extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class SellerLoginPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Seller Login'),
       ),
-      body:Padding(
+      body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -15,15 +16,17 @@ class SellerLoginPage extends StatelessWidget {
             Text(
               'Welcome Seller!',
               style: TextStyle(
-               fontFamily: 'Poppins',
+                fontFamily: 'Poppins',
                 fontSize: 36.0,
                 fontWeight: FontWeight.w800,
                 color: Color(0xFF6CB523),
                 height: 54.0 / 36.0, // Line height
                 letterSpacing: 0.0,
-                ),
+              ),
             ),
-            SizedBox(height: 20.0,),
+            SizedBox(
+              height: 20.0,
+            ),
             Text(
               'Enter the username and password given by Hathi.',
               style: TextStyle(
@@ -31,9 +34,9 @@ class SellerLoginPage extends StatelessWidget {
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
                 color: Colors.black,
-                height: 23.0/15.0,
-                letterSpacing:0.0,
-                ),
+                height: 23.0 / 15.0,
+                letterSpacing: 0.0,
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20.0),
