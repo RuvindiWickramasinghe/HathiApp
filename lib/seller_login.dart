@@ -8,7 +8,8 @@ class SellerLoginPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Seller Login'),
       ),
-      body: Padding(
+      body:  SingleChildScrollView(
+        child:Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,6 +65,7 @@ class SellerLoginPage extends StatelessWidget {
           ],
         ),
       ),
+     ),
     );
   }
 }
