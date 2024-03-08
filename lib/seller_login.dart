@@ -27,7 +27,7 @@ class SellerLoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 30.0,
             ),
             Text(
               'Enter the username and password given by Hathi.',
@@ -41,7 +41,7 @@ class SellerLoginPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 20.0),
                SizedBox(
                   width: 325.0,
                   child: TextField(
@@ -49,21 +49,24 @@ class SellerLoginPage extends StatelessWidget {
                       labelText: 'Username',
                       border: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(8.0),
-                         
+                         borderSide: BorderSide(color: Color(0xFF6CB523)
+                         ),
                       ),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 20.0),
                 SizedBox(
                   width: 325.0,
                   child: TextField(
                   decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
-                     borderRadius: BorderRadius.circular(8.0)
+                     borderRadius: BorderRadius.circular(8.0),
+                     borderSide: BorderSide(color: Color(0xFF6CB523)
+                     ),
                   ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
@@ -71,7 +74,7 @@ class SellerLoginPage extends StatelessWidget {
                     obscureText: true, // Hide the password
                   ),
                 ),
-                 SizedBox(height: 10.0),
+                 SizedBox(height: 20.0),
                  Padding(
                  padding: EdgeInsets.only(right: 50.0), 
                  child: Row(
