@@ -76,7 +76,7 @@ class SellerLoginPage extends StatelessWidget {
                 ),
                  SizedBox(height: 20.0),
                  Padding(
-                 padding: EdgeInsets.only(right: 50.0), 
+                 padding: EdgeInsets.only(right: 35.0), 
                  child: Row(
                  mainAxisAlignment: MainAxisAlignment.end, 
                   children: [
@@ -106,16 +106,17 @@ class SellerLoginPage extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF6CB523),
-                minimumSize: Size(300, 50),
+                minimumSize: Size(350, 50),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
               child: Text(
-                'Login',
+                'Sign In',
                 style: TextStyle(
                  color: Colors.white,
                  fontFamily: 'Poppins',
+                 fontSize: 18,
                  ),
               ),
             ),
