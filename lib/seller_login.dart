@@ -91,8 +91,10 @@ class SellerLoginPage extends StatelessWidget {
                  padding: EdgeInsets.only(right: 35.0), 
                  child: Row(
                  mainAxisAlignment: MainAxisAlignment.end, 
-                  children: [
-                GestureDetector(
+                 children: [
+                  MouseRegion(
+                 cursor: SystemMouseCursors.click,
+                child:GestureDetector(
                   onTap: () {
                     // Add functionality for "Forget Password"
                   },
@@ -107,12 +109,15 @@ class SellerLoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
               ],
             ),
           ),
             SizedBox(
               height: 20.0),
-            ElevatedButton(
+              MouseRegion(
+             cursor:SystemMouseCursors.click,
+             child:ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => nelith()));// Add your login functionality here
               },
@@ -132,6 +137,7 @@ class SellerLoginPage extends StatelessWidget {
                  ),
               ),
             ),
+           ),
         
                    SizedBox(height: 20.0),
                   Row(
@@ -144,16 +150,18 @@ class SellerLoginPage extends StatelessWidget {
                   fontStyle: FontStyle.italic
             ),
            ),
-          GestureDetector(
-        onTap: () {
+           MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child:GestureDetector(
+          onTap: () {
         // Add functionality for "Register Now"
-      },
-      child: Text(
+             },
+        child: Text(
         'Register Now',
          style: TextStyle(
          color: Color(0xFF6CB523),
         fontStyle: FontStyle.italic
-          
+         ), 
         ),
       ),
     ),
