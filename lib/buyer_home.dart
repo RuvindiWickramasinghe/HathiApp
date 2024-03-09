@@ -270,6 +270,8 @@ class _nelithState extends State<nelith> {
               ),
             ],
           ),
+
+          SizedBox(width: 1,height: 10,),
         
         //row two//
         
@@ -368,7 +370,8 @@ class _nelithState extends State<nelith> {
             ],
           ),
         
-        
+        SizedBox(width: 1,height: 10,),
+
         //row three//
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -465,7 +468,8 @@ class _nelithState extends State<nelith> {
             ],
           ),
         
-        
+        SizedBox(width: 1,height: 10,),
+
         //row four//
         
           Row(
