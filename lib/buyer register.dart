@@ -117,7 +117,7 @@ class SellerLoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Not a Member? ',
+                      'Already have an account? ',
                       style: TextStyle(
                           color: Colors.black, fontStyle: FontStyle.italic),
                     ),
@@ -126,7 +126,7 @@ class SellerLoginPage extends StatelessWidget {
                         // Add functionality for "Register Now"
                       },
                       child: Text(
-                        'Register Now',
+                        'Login Now',
                         style: TextStyle(
                             color: Color.fromARGB(255, 200, 128, 51),
                             fontStyle: FontStyle.italic),
