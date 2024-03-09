@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '';
 
 class sellerReg extends StatelessWidget {
 
@@ -165,7 +166,32 @@ SizedBox(
     obscureText: true,
   ),
 ),
-                
+              SizedBox(
+              height: 20.0),
+              MouseRegion(
+             cursor:SystemMouseCursors.click,
+             child:ElevatedButton(
+              onPressed: () {
+              
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF6CB523),
+                minimumSize: Size(350, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+              ),
+              child: Text(
+                'Next',
+                style: TextStyle(
+                 color: Colors.white,
+                 fontFamily: 'Poppins',
+                 fontSize: 18,
+                 ),
+              ),
+            ),
+           ),
+          
           ],
         ),
         ),
