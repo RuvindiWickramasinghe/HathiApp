@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/domestic_services.dart';
+import 'package:flutter_application_1/electric.dart';
+import 'package:flutter_application_1/evens.dart';
+import 'package:flutter_application_1/garden.dart';
+import 'package:flutter_application_1/vehicle.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
 
-//this is the home//
+//this is the menu//
 
       drawer: Drawer(
         backgroundColor: Color.fromRGBO(232, 99, 70, 1),
@@ -230,7 +234,10 @@ class _HomePageState extends State<HomePage> {
           
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => events()),
+                );
                 },
               child: Row(
                 children: [
@@ -284,7 +291,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => vehicle()),
+                );
                 },
               child: Row(
                 children: [
@@ -329,7 +339,10 @@ class _HomePageState extends State<HomePage> {
           
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => electric()),
+                );
                 },
               child: Row(
                 children: [
@@ -382,7 +395,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => garden()),
+                );
                 },
               child: Row(
                 children: [

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/buyer_home.dart';
 
-class domesticServices extends StatefulWidget {
-  const domesticServices({super.key});
+class events extends StatefulWidget {
+  const events({super.key});
 
   @override
-  State<domesticServices> createState() => _domesticServicesState();
+  State<events> createState() => _eventsState();
 }
 
-class _domesticServicesState extends State<domesticServices> {
+class _eventsState extends State<events> {
   bool isSearching = false;
 
   @override
@@ -181,7 +181,7 @@ class _domesticServicesState extends State<domesticServices> {
               children: [
                 Title(color: Colors.black,
                         child: Text(
-                          "Domestic Services",
+                          "Events & Entertainment",
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold
