@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '';
+import 'package:flutter_application_1/buyer%20register.dart';
+import 'sellerReg1.dart';
+import 'seller_login.dart';
 
 class sellerReg extends StatelessWidget {
 
@@ -8,7 +10,7 @@ class sellerReg extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seller registration'),
+        title: Text(''),
       ),
       body:  SingleChildScrollView(
         child:Center(
@@ -172,7 +174,8 @@ SizedBox(
              cursor:SystemMouseCursors.click,
              child:ElevatedButton(
               onPressed: () {
-              
+
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SellerRegister1Page()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF6CB523),
@@ -192,7 +195,41 @@ SizedBox(
             ),
            ),
           
+                   SizedBox(height: 20.0),
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  Text(
+                  'Already have an account ',
+                  style: TextStyle(
+                  color: Colors.black,
+                  fontStyle: FontStyle.italic
+            ),
+           ),
+                   MouseRegion(
+                   cursor: SystemMouseCursors.click,
+                   child:GestureDetector(
+                   onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SellerLoginPage()), // Using a different name for the destination page
+                     );
+                   },
+                  child: Text(
+                  'Sign In',
+                  style: TextStyle(
+                  color: Color(0xFF6CB523),
+                  fontStyle: FontStyle.italic
+         ), 
+        ),
+      ),
+    ),
+  ],
+),
+        
           ],
+          
+          
         ),
         ),
         ),
