@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class nelith extends StatefulWidget {
-  const nelith({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<nelith> createState() => _nelithState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _nelithState extends State<nelith> {
+class _HomePageState extends State<HomePage> {
   bool isSearching = false;
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'buyer_home.dart';
+import 'sellerReg.dart';
 
 class SellerLoginPage extends StatelessWidget {
   @override
@@ -119,7 +120,7 @@ class SellerLoginPage extends StatelessWidget {
              cursor:SystemMouseCursors.click,
              child:ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => nelith()));// Add your login functionality here
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));// Add your login functionality here
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF6CB523),
@@ -150,17 +151,20 @@ class SellerLoginPage extends StatelessWidget {
                   fontStyle: FontStyle.italic
             ),
            ),
-           MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child:GestureDetector(
-          onTap: () {
-        // Add functionality for "Register Now"
-             },
-        child: Text(
-        'Register Now',
-         style: TextStyle(
-         color: Color(0xFF6CB523),
-        fontStyle: FontStyle.italic
+                   MouseRegion(
+                   cursor: SystemMouseCursors.click,
+                   child:GestureDetector(
+                   onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => sellerReg()), // Using a different name for the destination page
+                     );
+                   },
+                  child: Text(
+                  'Register Now',
+                  style: TextStyle(
+                  color: Color(0xFF6CB523),
+                  fontStyle: FontStyle.italic
          ), 
         ),
       ),

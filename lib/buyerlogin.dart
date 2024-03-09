@@ -102,7 +102,7 @@ class SellerLoginPage extends StatelessWidget {
               height: 20.0),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => nelith()));// Add your login functionality here
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));// Add your login functionality here
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 203, 121, 39),
