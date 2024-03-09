@@ -29,15 +29,16 @@ class SellerLoginPage extends StatelessWidget {
             ),
             SizedBox(
               height: 30.0,
+              
             ),
             Text(
               'Enter the username and password given by Hathi.',
               style: TextStyle(
-                fontSize: 15.0,
+                fontSize: 17.0,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w400,
-                color: Colors.black,
-                height: 23.0 / 15.0,
+                color: const Color.fromARGB(255, 92, 87, 87),
+                height: 23.0 / 17.0,
                 letterSpacing: 0.0,
               ),
               textAlign: TextAlign.center,
@@ -48,6 +49,8 @@ class SellerLoginPage extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       labelText: 'Username',
+                      labelStyle: TextStyle(
+                      color:Color(0xFF6CB523),),
                       border: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(8.0),
                          borderSide: BorderSide(color: Color(0xFF6CB523)
@@ -70,6 +73,8 @@ class SellerLoginPage extends StatelessWidget {
                   child: TextField(
                   decoration: InputDecoration(
                   labelText: 'Password',
+                  labelStyle: TextStyle(
+                      color:Color(0xFF6CB523),),
                   border: OutlineInputBorder(
                      borderRadius: BorderRadius.circular(8.0),
                      borderSide: BorderSide(color: Color(0xFF6CB523)
