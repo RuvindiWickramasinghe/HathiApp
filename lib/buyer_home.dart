@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/domestic_services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -181,7 +182,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => domesticServices()),
+                );
                 },
                 child: Row(
                   children: [
