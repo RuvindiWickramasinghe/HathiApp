@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(MaterialApp( 
     home: sellerRegister2(),
   ));
 }
 
+
 class sellerRegister2 extends StatefulWidget {
   const sellerRegister2({super.key});
-
   @override
   State<sellerRegister2> createState() => _sellerRegister2State();
+
 }
 
 class _sellerRegister2State extends State<sellerRegister2> {
