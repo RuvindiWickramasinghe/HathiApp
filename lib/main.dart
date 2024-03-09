@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'seller_login.dart'; // Import the seller login page
+import 'buyerlogin.dart';
 
 
 void main() {
@@ -44,6 +45,17 @@ class MainPage extends StatelessWidget {
                 );
               },
               child: Text('Seller Login'),
+            ),
+              SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the seller login page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BuyerLoginPage()),
+                );
+              },
+              child: Text('buyer Login'),
             ),
           ],
         ),

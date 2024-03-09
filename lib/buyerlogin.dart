@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'buyer_home.dart';
+import 'buyerRegister.dart';
 
-class SellerLoginPage extends StatelessWidget {
+class BuyerLoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,7 +135,10 @@ class SellerLoginPage extends StatelessWidget {
            ),
           GestureDetector(
         onTap: () {
-        // Add functionality for "Register Now"
+          Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BuyerRegisterPage()), // Using a different name for the destination page
+                     );
       },
       child: Text(
         'Register Now',

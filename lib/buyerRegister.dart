@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'buyer_home.dart';
 
-class SellerLoginPage extends StatelessWidget {
+class BuyerRegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,7 +117,7 @@ class SellerLoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Already have an account? ',
+                      'Not a Member? ',
                       style: TextStyle(
                           color: Colors.black, fontStyle: FontStyle.italic),
                     ),
@@ -126,7 +126,7 @@ class SellerLoginPage extends StatelessWidget {
                         // Add functionality for "Register Now"
                       },
                       child: Text(
-                        'Login Now',
+                        'Register Now',
                         style: TextStyle(
                             color: Color.fromARGB(255, 200, 128, 51),
                             fontStyle: FontStyle.italic),
