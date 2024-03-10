@@ -165,13 +165,21 @@ class SellerLoginPage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => sellerReg()), // Using a different name for the destination page
                      );
                    },
-                  child: Text(
-                  'Register Now',
-                  style: TextStyle(
-                  color: Color(0xFF6CB523),
-                  fontStyle: FontStyle.italic
-         ), 
-        ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => sellerReg()),
+                );
+                    },
+                    child: Text(
+                    'Register Now',
+                    style: TextStyle(
+                    color: Color(0xFF6CB523),
+                    fontStyle: FontStyle.italic
+                             ), 
+                            ),
+                  ),
       ),
     ),
   ],

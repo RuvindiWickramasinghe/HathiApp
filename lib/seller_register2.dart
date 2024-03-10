@@ -1,24 +1,16 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp( 
-    home: sellerRegister2(),
-  ));
-}
+class sellerReg2 extends StatefulWidget {
+  const sellerReg2({super.key});
 
-
-class sellerRegister2 extends StatefulWidget {
-  const sellerRegister2({super.key});
   @override
-  State<sellerRegister2> createState() => _sellerRegister2State();
-
+  State<sellerReg2> createState() => _sellerReg2State();
 }
 
-class _sellerRegister2State extends State<sellerRegister2> {
+class _sellerReg2State extends State<sellerReg2> {
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(
+    return Scaffold(
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

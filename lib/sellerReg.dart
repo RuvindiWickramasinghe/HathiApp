@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/buyer%20register.dart';
+import 'package:flutter_application_1/seller_register2.dart';
 import 'sellerReg1.dart';
 
 
@@ -215,7 +215,7 @@ SizedBox(
                    onTap: () {
                     Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SellerLoginPage()), // Using a different name for the destination page
+                    MaterialPageRoute(builder: (context) => sellerReg2()), // Using a different name for the destination page
                      );
                    },
                   child: Text(
