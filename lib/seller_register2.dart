@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class sellerReg2 extends StatefulWidget {
-  const sellerReg2({super.key});
+class SellerRegister2Page extends StatefulWidget {
+  const SellerRegister2Page({super.key});
 
   @override
-  State<sellerReg2> createState() => _sellerReg2State();
+  State<SellerRegister2Page> createState() => _sellerReg2State();
 }
 
-class _sellerReg2State extends State<sellerReg2> {
+class _sellerReg2State extends State<SellerRegister2Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

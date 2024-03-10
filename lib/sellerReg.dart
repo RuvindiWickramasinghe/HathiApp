@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/seller_register2.dart';
-import 'sellerReg1.dart';
+
 
 class sellerReg extends StatelessWidget {
   @override
@@ -175,7 +175,8 @@ class sellerReg extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SellerRegister1Page()));
+                              builder: (context) => SellerRegister2Page())
+                              );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF6CB523),
@@ -222,25 +223,8 @@ class sellerReg extends StatelessWidget {
               ],
             ),
             ),
-                   MouseRegion(
-                   cursor: SystemMouseCursors.click,
-                   child:GestureDetector(
-                   onTap: () {
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => sellerReg2()), 
-                     );
-                   },
-                  child: Text(
-                  'Sign In',
-                  style: TextStyle(
-                  color: Color(0xFF6CB523),
-                  fontStyle: FontStyle.italic
-         ), 
-        ),
-      ),
-    ),
-  ],
+                  
+  
 ),
 
 ),
