@@ -13,7 +13,8 @@ class hathiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      home: Scaffold(
-      body: SingleChildScrollView(
+      body:Center( 
+        child:SingleChildScrollView(
         child: Center(
           child: Padding(
             padding: EdgeInsets.all(16.0),
@@ -87,6 +88,7 @@ class hathiApp extends StatelessWidget {
           ),
         ),
       ),
+     ),
      ),
     );
     
