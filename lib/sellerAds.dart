@@ -72,8 +72,18 @@ class SellerAdPage extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
            ),
          items: [
-         DropdownMenuItem(child: Text('Category 1'), value: 'category1'),
-         DropdownMenuItem(child: Text('Category 2'), value: 'category2'),
+         DropdownMenuItem(child: Text('Domestic Services'), value: 'category1'),
+         DropdownMenuItem(child: Text('Event & Entertainment '), value: 'category2'),
+         DropdownMenuItem(child: Text('Vehicle service'), value: 'category2'),
+         DropdownMenuItem(child: Text('Electrical services'), value: 'category2'),
+         DropdownMenuItem(child: Text('Garden services'), value: 'category2'),
+          DropdownMenuItem(child: Text('Health & Physical services'), value: 'category2'),
+
+
+
+
+
+
     // Add more categories as needed
            ],
           onChanged: (value) {},

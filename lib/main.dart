@@ -4,9 +4,10 @@ import 'buyerlogin.dart';
 
 
 void main() {
-  runApp(hathiApp());
+  runApp(MaterialApp(
+    home: hathiApp(),
+  ));
 }
-
 class hathiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class hathiApp extends StatelessWidget {
                 // Replace text fields with buttons
                 ElevatedButton(
                   onPressed: () {
-                    // Add functionality for "Buyer" button
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => BuyerLoginPage()));  
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 214, 128, 23),
@@ -63,7 +64,7 @@ class hathiApp extends StatelessWidget {
                 SizedBox(height: 20.0),
                 ElevatedButton(
                   onPressed: () {
-                    // Add functionality for "Seller" button
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => SellerLoginPage()));  
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF6CB523),
