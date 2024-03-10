@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/buyer%20register.dart';
 import 'sellerReg1.dart';
-import 'seller_login.dart';
+
+
+
+
 
 class sellerReg extends StatelessWidget {
 
