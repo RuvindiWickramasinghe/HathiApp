@@ -7,7 +7,7 @@ class SellerLoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seller Login'),
+        title: Text('Loading Screen'),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -18,10 +18,20 @@ class SellerLoginPage extends StatelessWidget {
               children: <Widget>[
                 // Add your logo here
                 Image.asset(
-                  'assets/your_logo.png',
+                  'assets/hathilogo.png',
                   width: 200.0,
                   height: 200.0,
                   // Adjust the width and height according to your logo size
+                ),
+                SizedBox(height: 10.0),
+                // Description text
+                Text(
+                  'You can buy and sell services',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontFamily: 'Poppins',
+                    color: Colors.black,
+                  ),
                 ),
                 SizedBox(
                   height: 30.0,
