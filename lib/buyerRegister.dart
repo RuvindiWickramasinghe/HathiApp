@@ -49,8 +49,8 @@ class BuyerRegisterPage extends StatelessWidget {
                       labelText: 'Email',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 100, 98, 95)),
+                        borderSide:
+                            BorderSide(color: Color.fromARGB(255, 100, 98, 95)),
                       ),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
@@ -117,16 +117,16 @@ class BuyerRegisterPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Not a Member? ',
+                      'Already have an account ',
                       style: TextStyle(
                           color: Colors.black, fontStyle: FontStyle.italic),
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Add functionality for "Register Now"
+                        Navigator.pop(context);
                       },
                       child: Text(
-                        'Register Now',
+                        'Sign In',
                         style: TextStyle(
                             color: Color.fromARGB(255, 200, 128, 51),
                             fontStyle: FontStyle.italic),
