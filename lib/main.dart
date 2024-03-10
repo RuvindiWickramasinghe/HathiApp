@@ -1,65 +1,93 @@
 import 'package:flutter/material.dart';
-import 'seller_login.dart'; // Import the seller login page
+import 'seller_login.dart';
 import 'buyerlogin.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(hathiApp());
 }
 
-class MyApp extends StatelessWidget {
+class hathiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Seller App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MainPage(),
-    );
-  }
-}
-
-class MainPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Main Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Welcome to Seller App',
-              style: TextStyle(fontSize: 24.0),
+     home: Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+              
+                Image.asset(
+                  'assets/hathi_logo.png',
+                  width: 200.0,
+                  height: 200.0,
+                
+                ),
+                SizedBox(height: 10.0),
+                // Description text
+                Text(
+                  'You can buy and sell services',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontFamily: 'Poppins',
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                // Replace text fields with buttons
+                ElevatedButton(
+                  onPressed: () {
+                    // Add functionality for "Buyer" button
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 214, 128, 23),
+                    minimumSize: Size(325, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  child: Text(
+                    'Buyer',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    // Add functionality for "Seller" button
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF6CB523),
+                    minimumSize: Size(325, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  child: Text(
+                    'Seller',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Poppins',
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to the seller login page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SellerLoginPage()),
-                );
-              },
-              child: Text('Seller Login'),
-            ),
-              SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to the seller login page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BuyerLoginPage()),
-                );
-              },
-              child: Text('buyer Login'),
-            ),
-          ],
+          ),
         ),
       ),
+     ),
     );
+    
   }
 }
