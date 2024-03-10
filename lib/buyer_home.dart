@@ -4,6 +4,7 @@ import 'package:flutter_application_1/electric.dart';
 import 'package:flutter_application_1/evens.dart';
 import 'package:flutter_application_1/garden.dart';
 import 'package:flutter_application_1/vehicle.dart';
+import 'sellerAds.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -556,7 +557,9 @@ class _HomePageState extends State<HomePage> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SellerAdPage()));
+        },
         child: const Icon(Icons.add),
         backgroundColor: Color.fromRGBO(108, 181, 35, 1),
       ),

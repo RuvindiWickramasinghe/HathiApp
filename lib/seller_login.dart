@@ -80,10 +80,10 @@ class SellerLoginPage extends StatelessWidget {
                      borderSide: BorderSide(color: Color(0xFF6CB523)
                      ),
                   ),
-                  focusedBorder: OutlineInputBorder( // Set focused border color
+                  focusedBorder: OutlineInputBorder( 
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: BorderSide(
-                  color: Color(0xFF6CB523), // Focused border color
+                  color: Color(0xFF6CB523),
                  ),
                 ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -125,7 +125,7 @@ class SellerLoginPage extends StatelessWidget {
              cursor:SystemMouseCursors.click,
              child:ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));// Add your login functionality here
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF6CB523),
