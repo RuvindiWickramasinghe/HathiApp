@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'payment_gateway.dart';
 
 class SellerAdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('ADVERTISEMENTS',
         style: TextStyle(color: Colors.green)
         ), 
@@ -128,27 +130,90 @@ SizedBox(
     textAlign: TextAlign.center,
   ),
 ),
-            SizedBox(height: 10),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Your Contact Number'),
-            ),
-            SizedBox(height: 10),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Description'),
-              maxLines: 3,
-            ),
-            SizedBox(height: 20),
+           SizedBox(height: 20.0),
+SizedBox(
+  width: 325.0,
+  child: TextField(
+    decoration: InputDecoration(
+      labelText: 'Your Contact Number',
+      labelStyle: TextStyle(
+        color: Color.fromARGB(255, 139, 139, 139),
+        fontFamily: 'Poppins'
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(color: Color(0xFF6CB523)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        borderSide: BorderSide(
+          color: Color(0xFF6CB523),
+        ),
+      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+    ),
+    textAlign: TextAlign.center,
+  ),
+),SizedBox(height: 20.0),
+SizedBox(
+  width: 325.0,
+  child: TextField(
+    decoration: InputDecoration(
+      labelText: 'Description',
+      labelStyle: TextStyle(
+        color: Color.fromARGB(255, 139, 139, 139),
+        fontFamily: 'Poppins'
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(color: Color(0xFF6CB523)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        borderSide: BorderSide(
+          color: Color(0xFF6CB523),
+        ),
+      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+    ),
+    textAlign: TextAlign.center,
+    maxLines: 3,
+  ),
+),
+            SizedBox(height: 50),
             Text(
-              'Some additional text here...', // Add your additional text
-              style: TextStyle(fontSize: 16),
+              'Total : LKR1000', // Add your additional text
+              style: TextStyle(fontSize: 18,
+              color: Colors.red[800],
+              fontWeight: FontWeight.w500
+              ),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
+            SizedBox(
+              height: 20.0),
+              MouseRegion(
+             cursor:SystemMouseCursors.click,
+             child:ElevatedButton(
               onPressed: () {
-                // Add functionality for the button
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => paymentGate()));
+                
               },
-              child: Text('Submit'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF6CB523),
+                minimumSize: Size(400, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+              ),
+              child: Text(
+                'Pay & Post',
+                style: TextStyle(
+                 color: Colors.white,
+                 fontFamily: 'Poppins',
+                 fontSize: 18,
+                 ),
+              ),
             ),
+           ),
           ],
         ),
       ),
