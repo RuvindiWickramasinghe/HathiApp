@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '';
+
 
 class sellerReg extends StatelessWidget {
 
