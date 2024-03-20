@@ -3,6 +3,7 @@ import 'package:flutter_application_1/domestic_services.dart';
 import 'package:flutter_application_1/electric.dart';
 import 'package:flutter_application_1/evens.dart';
 import 'package:flutter_application_1/garden.dart';
+import 'package:flutter_application_1/health.dart';
 import 'package:flutter_application_1/vehicle.dart';
 import 'sellerAds.dart';
 
@@ -21,12 +22,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(253, 255, 241, 1),
       appBar: AppBar(
-        title: !isSearching 
-          ? Center(child: Text("HATHI"))
-          : TextField(decoration: InputDecoration(
-                hintText: "Search"
+        title: !isSearching
+            ? Center(child: Text("HATHI"))
+            : TextField(
+                decoration: InputDecoration(hintText: "Search"),
               ),
-            ),
         foregroundColor: Color.fromRGBO(255, 138, 0, 1),
         backgroundColor: Color.fromRGBO(253, 255, 241, 1),
         actions: [
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
               });
             },
             icon: Icon(Icons.search),
-            ),
+          ),
         ],
       ),
 
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             InkWell(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(0.0,30.0,0.0,15.0),
+                padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
                 child: Row(
                   children: [
                     Expanded(
@@ -57,26 +57,24 @@ class _HomePageState extends State<HomePage> {
                         Icons.arrow_back_ios,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:3,
-                        child:Text(
-                          "Menu",
-                          style: TextStyle(
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        "Menu",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 35,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
-
             InkWell(
-              onTap: (){
+              onTap: () {
                 print("clicked");
               },
               child: Padding(
@@ -88,26 +86,24 @@ class _HomePageState extends State<HomePage> {
                         Icons.home,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:2,
-                        child:Text(
-                          "Home",
-                          style: TextStyle(
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        "Home",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
-            
             InkWell(
-              onTap: (){
+              onTap: () {
                 print("clicked");
               },
               child: Padding(
@@ -119,28 +115,28 @@ class _HomePageState extends State<HomePage> {
                         Icons.person,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:2,
-                        child:Text(
-                          "Profile",
-                          style: TextStyle(
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        "Profile",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
-
-            SizedBox(height: 450.0,width: 10.0,),
-
+            SizedBox(
+              height: 450.0,
+              width: 10.0,
+            ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 print("clicked");
               },
               child: Padding(
@@ -152,45 +148,41 @@ class _HomePageState extends State<HomePage> {
                         Icons.logout,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:2,
-                        child:Text(
-                          "Logout",
-                          style: TextStyle(
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        "Logout",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
           ],
         ),
       ),
 
 //this is the body//
-      body: 
-      SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children:[ 
-        
-        //row one//
-        
-            Row(
+      body: SingleChildScrollView(
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          //row one//
+
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 onTap: () {
-                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => domesticServices()),
-                );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => domesticServices()),
+                  );
                 },
                 child: Row(
                   children: [
@@ -209,12 +201,11 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              style:TextStyle(fontWeight: FontWeight.bold),
-                              'Domestic Services'
-                            ),
-                          ],
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Domestic Services'),
+                            ],
                           ),
                         ],
                       ),
@@ -232,333 +223,336 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-          
               GestureDetector(
                 onTap: () {
-                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => events()),
-                );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => events()),
+                  );
                 },
-              child: Row(
-                children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage('assets/party.png')),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(image: AssetImage('assets/party.png')),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Events &\n Entertainment'),
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          style:TextStyle(fontWeight: FontWeight.bold),
-                          'Events &\n Entertainment'
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: Color.fromRGBO(255, 138, 0, 1),
                         ),
-                      ],
                       ),
-                    ],
-                  ),
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
-                  color: Color.fromRGBO(253, 255, 241, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Color.fromRGBO(255, 138, 0, 1),
+                    ),
+                  ],
                 ),
-                ),
-        
-                        ),],
-              ),
               ),
             ],
           ),
 
-          SizedBox(width: 1,height: 10,),
-        
-        //row two//
-        
+          SizedBox(
+            width: 1,
+            height: 10,
+          ),
+
+          //row two//
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 onTap: () {
-                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => vehicle()),
-                );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => vehicle()),
+                  );
                 },
-              child: Row(
-                children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage('assets/car.png')),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(image: AssetImage('assets/car.png')),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Vehicle Services'),
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          style:TextStyle(fontWeight: FontWeight.bold),
-                          'Vehicle Services'
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: Color.fromRGBO(255, 138, 0, 1),
                         ),
-                      ],
                       ),
-                    ],
-                  ),
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
-                  color: Color.fromRGBO(253, 255, 241, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Color.fromRGBO(255, 138, 0, 1),
+                    ),
+                  ],
                 ),
-                ),
-        
-                        ),],
               ),
-              ),
-          
               GestureDetector(
                 onTap: () {
-                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => electric()),
-                );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => electric()),
+                  );
                 },
-              child: Row(
-                children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage('assets/work.png')),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(image: AssetImage('assets/work.png')),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Electrical Services'),
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          style:TextStyle(fontWeight: FontWeight.bold),
-                          'Electrical Services'
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: Color.fromRGBO(255, 138, 0, 1),
                         ),
-                      ],
                       ),
-                    ],
-                  ),
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
-                  color: Color.fromRGBO(253, 255, 241, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Color.fromRGBO(255, 138, 0, 1),
+                    ),
+                  ],
                 ),
-                ),
-        
-                        ),],
-              ),
               ),
             ],
           ),
-        
-        SizedBox(width: 1,height: 10,),
 
-        //row three//
+          SizedBox(
+            width: 1,
+            height: 10,
+          ),
+
+          //row three//
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 onTap: () {
-                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => garden()),
-                );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => garden()),
+                  );
                 },
-              child: Row(
-                children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage('assets/garden.png')),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(image: AssetImage('assets/garden.png')),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Garden Services'),
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          style:TextStyle(fontWeight: FontWeight.bold),
-                          'Garden Services'
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: Color.fromRGBO(255, 138, 0, 1),
                         ),
-                      ],
                       ),
-                    ],
-                  ),
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
-                  color: Color.fromRGBO(253, 255, 241, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Color.fromRGBO(255, 138, 0, 1),
+                    ),
+                  ],
                 ),
-                ),
-        
-                        ),],
               ),
-              ),
-          
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => health()),
+                  );
                 },
-              child: Row(
-                children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage('assets/health.png')),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(image: AssetImage('assets/health.png')),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Health &\nPhysical services'),
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          style:TextStyle(fontWeight: FontWeight.bold),
-                          'Health &\nPhysical services'
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: Color.fromRGBO(255, 138, 0, 1),
                         ),
-                      ],
                       ),
-                    ],
-                  ),
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
-                  color: Color.fromRGBO(253, 255, 241, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Color.fromRGBO(255, 138, 0, 1),
+                    ),
+                  ],
                 ),
-                ),
-        
-                        ),],
-              ),
               ),
             ],
           ),
-        
-        SizedBox(width: 1,height: 10,),
 
-        //row four//
-        
+          SizedBox(
+            width: 1,
+            height: 10,
+          ),
+
+          //row four//
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
                 onTap: () {
-                 print('Hello');
+                  print('Hello');
                 },
-              child: Row(
-                children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image(image: AssetImage('assets/dots.png'),width: 70,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(
+                                image: AssetImage('assets/dots.png'),
+                                width: 70,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  'Other'),
+                            ],
+                          ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          style:TextStyle(fontWeight: FontWeight.bold),
-                          'Other'
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: Color.fromRGBO(255, 138, 0, 1),
                         ),
-                      ],
                       ),
-                    ],
-                  ),
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 160,
+                width: 160,
+                decoration: BoxDecoration(
                   color: Color.fromRGBO(253, 255, 241, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 2,
-                    color: Color.fromRGBO(255, 138, 0, 1),
                 ),
-                ),
-        
-                        ),],
               ),
-              ),
-        
-        
-          Container(            
-              height: 160,
-              width: 160,
-              decoration: BoxDecoration(
-              color: Color.fromRGBO(253, 255, 241, 1),
-            ),
-          ),
-          
             ],
           ),
-          ]
-        ),
+        ]),
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SellerAdPage()));
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SellerAdPage()));
         },
         child: const Icon(Icons.add),
         backgroundColor: Color.fromRGBO(108, 181, 35, 1),
@@ -566,4 +560,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
