@@ -4,6 +4,7 @@ import 'package:flutter_application_1/electric.dart';
 import 'package:flutter_application_1/evens.dart';
 import 'package:flutter_application_1/garden.dart';
 import 'package:flutter_application_1/health.dart';
+import 'package:flutter_application_1/other.dart';
 import 'package:flutter_application_1/vehicle.dart';
 import 'sellerAds.dart';
 
@@ -493,7 +494,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print('Hello');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => other()),
+                  );
                 },
                 child: Row(
                   children: [
