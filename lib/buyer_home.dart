@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/domestic_services.dart';
-import 'package:flutter_application_1/electric.dart';
-import 'package:flutter_application_1/evens.dart';
-import 'package:flutter_application_1/garden.dart';
-import 'package:flutter_application_1/health.dart';
-import 'package:flutter_application_1/other.dart';
-import 'package:flutter_application_1/vehicle.dart';
-import 'sellerAds.dart';
+import 'package:hathi_app/domestic_services.dart';
+import 'package:hathi_app/electric.dart';
+import 'package:hathi_app/evens.dart';
+import 'package:hathi_app/garden.dart';
+import 'package:hathi_app/health.dart';
+import 'package:hathi_app/vehicle.dart';
+
+import 'main.dart';
+import 'other.dart';
+import 'reviewSplash.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,23 +23,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(253, 255, 241, 1),
+      backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
       appBar: AppBar(
         title: !isSearching
-            ? Center(child: Text("HATHI"))
-            : TextField(
+            ? const Center(child: Text("HATHI"))
+            : const TextField(
                 decoration: InputDecoration(hintText: "Search"),
               ),
-        foregroundColor: Color.fromRGBO(255, 138, 0, 1),
-        backgroundColor: Color.fromRGBO(253, 255, 241, 1),
+        foregroundColor: const Color.fromRGBO(255, 138, 0, 1),
+        backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
         actions: [
           IconButton(
             onPressed: () {
               setState(() {
-                this.isSearching = !this.isSearching;
+                isSearching = !isSearching;
               });
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
       ),
@@ -45,10 +47,10 @@ class _HomePageState extends State<HomePage> {
 //this is the menu//
 
       drawer: Drawer(
-        backgroundColor: Color.fromRGBO(232, 99, 70, 1),
+        backgroundColor: const Color.fromRGBO(232, 99, 70, 1),
         child: ListView(
           children: [
-            InkWell(
+            const InkWell(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
                 child: Row(
@@ -76,9 +78,14 @@ class _HomePageState extends State<HomePage> {
             ),
             InkWell(
               onTap: () {
-                print("clicked");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
                   children: [
@@ -103,44 +110,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {
-                print("clicked");
-              },
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Icon(
-                        Icons.person,
-                        size: 28.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Text(
-                        "Profile",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
+            const SizedBox(
               height: 450.0,
               width: 10.0,
             ),
             InkWell(
               onTap: () {
-                print("clicked");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const hathiApp(),
+                  ),
+                );
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
                   children: [
@@ -182,13 +165,24 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => domesticServices()),
+                    MaterialPageRoute(
+                        builder: (context) => const DomesticServices()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -210,16 +204,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -228,13 +212,23 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => events()),
+                    MaterialPageRoute(builder: (context) => const Events()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -256,16 +250,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -273,7 +257,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             width: 1,
             height: 10,
           ),
@@ -287,13 +271,23 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => vehicle()),
+                    MaterialPageRoute(builder: (context) => const Vehicle()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -315,16 +309,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -333,13 +317,23 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => electric()),
+                    MaterialPageRoute(builder: (context) => const Electric()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -361,16 +355,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -378,7 +362,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             width: 1,
             height: 10,
           ),
@@ -391,13 +375,23 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => garden()),
+                    MaterialPageRoute(builder: (context) => const Garden()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -419,16 +413,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -437,13 +421,23 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => health()),
+                    MaterialPageRoute(builder: (context) => const Health()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -465,16 +459,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -482,7 +466,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             width: 1,
             height: 10,
           ),
@@ -496,13 +480,23 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => other()),
+                    MaterialPageRoute(builder: (context) => const Other()),
                   );
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: Column(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(253, 255, 241, 1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 2,
+                          color: const Color.fromRGBO(255, 138, 0, 1),
+                        ),
+                      ),
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -527,16 +521,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      height: 160,
-                      width: 160,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(253, 255, 241, 1),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          width: 2,
-                          color: Color.fromRGBO(255, 138, 0, 1),
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -544,7 +528,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 160,
                 width: 160,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromRGBO(253, 255, 241, 1),
                 ),
               ),
@@ -555,11 +539,11 @@ class _HomePageState extends State<HomePage> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SellerAdPage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const BlogSplash()));
         },
+        backgroundColor: const Color.fromRGBO(108, 181, 35, 1),
         child: const Icon(Icons.add),
-        backgroundColor: Color.fromRGBO(108, 181, 35, 1),
       ),
     );
   }
