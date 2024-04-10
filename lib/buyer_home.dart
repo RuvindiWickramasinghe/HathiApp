@@ -350,7 +350,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Electrical Services'),//Electrical services button
+                                  'Electrical Services'),//Electrical service button
                             ],
                           ),
                         ],
