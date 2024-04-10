@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Domestic Services'),
+                                  'Domestic Services'),//Domestic services button
                             ],
                           ),
                         ],
