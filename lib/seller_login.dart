@@ -36,7 +36,7 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
       if (isSeller) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const SellerAdPage()),
+          MaterialPageRoute(builder: (context) => SellerAdPage()),
         );
       }
     } catch (e) {
