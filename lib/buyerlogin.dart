@@ -137,7 +137,7 @@ class BuyerLoginPage extends StatelessWidget {
         onTap: () {
           Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => BuyerRegisterPage()), // Using a different name for the destination page
+                    MaterialPageRoute(builder: (context) => BuyerRegisterPage()),
                      );
       },
       child: Text(
