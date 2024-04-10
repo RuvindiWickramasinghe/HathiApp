@@ -19,7 +19,11 @@ class _ElectricServicesState extends State<Electric> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
       appBar: AppBar(
-        
+        title: !isSearching
+            ? const Center(child: Text("HATHI"))
+            : const TextField(
+                decoration: InputDecoration(hintText: "Search"),
+              ),
         foregroundColor: const Color.fromRGBO(255, 138, 0, 1),
         backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
         actions: [
