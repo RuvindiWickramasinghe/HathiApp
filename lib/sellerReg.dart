@@ -298,7 +298,7 @@ class _SellerRegState extends State<SellerReg> {
                           Navigator.pop(context);
                         },
                         child: const Text(
-                          'Sign In',
+                          'Sign in',
                           style: TextStyle(
                               color: Color(0xFF6CB523),
                               fontStyle: FontStyle.italic),
