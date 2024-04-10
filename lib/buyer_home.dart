@@ -1087,7 +1087,14 @@ class _HomePageState extends State<HomePage> {
         ]),
       ),
 
-   
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const BlogSplash()));
+        },
+        backgroundColor: const Color.fromRGBO(108, 181, 35, 1),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
