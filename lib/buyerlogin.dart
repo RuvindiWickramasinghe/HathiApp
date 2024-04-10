@@ -187,4 +187,22 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
                           ),
                         );
                       },
-                      
+                      child: const Text(
+                        'Register Now',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 200, 128, 51),
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
