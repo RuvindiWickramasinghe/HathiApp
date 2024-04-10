@@ -250,22 +250,4 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
                               ),
                             );
                           },
-                          child: const Text(
-                            'Register Now',
-                            style: TextStyle(
-                                color: Color(0xFF6CB523),
-                                fontStyle: FontStyle.italic),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+                          
