@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hathi_app/buyerlogin.dart';
 
+
 class BuyerRegisterPage extends StatefulWidget {
   const BuyerRegisterPage({Key? key}) : super(key: key);
 
