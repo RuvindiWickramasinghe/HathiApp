@@ -1,61 +1,47 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/buyer_home.dart';
+import 'package:hathi_app/buyer_home.dart';
 
-class health extends StatefulWidget {
-  const health({super.key});
+import 'main.dart';
+
+class Health extends StatefulWidget {
+  const Health({Key? key}) : super(key: key);
 
   @override
-  State<health> createState() => _healthState();
+  State<Health> createState() => _HealthServicesState();
 }
 
-class _healthState extends State<health> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _HealthServicesState extends State<Health> {
   bool isSearching = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(253, 255, 241, 1),
+      backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
       appBar: AppBar(
         title: !isSearching
-            ? Center(child: Text("HATHI"))
-            : TextField(
+            ? const Center(child: Text("HATHI"))
+            : const TextField(
                 decoration: InputDecoration(hintText: "Search"),
               ),
-        foregroundColor: Color.fromRGBO(255, 138, 0, 1),
-        backgroundColor: Color.fromRGBO(253, 255, 241, 1),
+        foregroundColor: const Color.fromRGBO(255, 138, 0, 1),
+        backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
         actions: [
           IconButton(
             onPressed: () {
               setState(() {
-                this.isSearching = !this.isSearching;
+                isSearching = !isSearching;
               });
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
       ),
-
-//this is the menu//
-
       drawer: Drawer(
-        backgroundColor: Color.fromRGBO(232, 99, 70, 1),
+        backgroundColor: const Color.fromRGBO(232, 99, 70, 1),
         child: ListView(
           children: [
-            InkWell(
+            const InkWell(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
                 child: Row(
@@ -85,10 +71,12 @@ class _healthState extends State<health> with SingleTickerProviderStateMixin {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
                 );
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
                   children: [
@@ -113,44 +101,20 @@ class _healthState extends State<health> with SingleTickerProviderStateMixin {
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {
-                print("clicked");
-              },
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Icon(
-                        Icons.person,
-                        size: 28.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Text(
-                        "Profile",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
+            const SizedBox(
               height: 450.0,
               width: 10.0,
             ),
             InkWell(
               onTap: () {
-                print("clicked");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const hathiApp(),
+                  ),
+                );
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
                   children: [
@@ -178,12 +142,10 @@ class _healthState extends State<health> with SingleTickerProviderStateMixin {
           ],
         ),
       ),
-
-//this is the body//
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               width: 1,
               height: 10,
             ),
@@ -192,12 +154,78 @@ class _healthState extends State<health> with SingleTickerProviderStateMixin {
               children: [
                 Title(
                   color: Colors.black,
-                  child: Text(
-                    "Health & Physical Services",
+                  child: const Text(
+                    "Health & Physical services",
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection('ads')
+                    .where('category', isEqualTo: 'Health & Physical services')
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  }
+                  final ads = snapshot.data!.docs;
+                  return ListView.builder(
+                    itemCount: ads.length,
+                    itemBuilder: (context, index) {
+                      final ad = ads[index];
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 4,
+                          child: ListTile(
+                            title: Text(
+                              ad['serviceHeading'],
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Category: ${ad['category']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'City: ${ad['city']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'Description: ${ad['description']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'Contact Number: ${ad['contactNumber']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'Price: ${ad['price']}LKR',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),
