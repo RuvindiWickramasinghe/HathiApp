@@ -1,21 +1,90 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'buyer_home.dart';
+import 'package:hathi_app/buyerlogin.dart';
 
-class BuyerRegisterPage extends StatelessWidget {
+class BuyerRegisterPage extends StatefulWidget {
+  const BuyerRegisterPage({Key? key}) : super(key: key);
+
+  @override
+  _BuyerRegisterPageState createState() => _BuyerRegisterPageState();
+}
+
+class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
+  bool isLoading = false; // Add a boolean to track loading state
+
+  void registerUser() async {
+    setState(() {
+      isLoading = true; // Set loading to true when registration begins
+    });
+
+    try {
+      // Check if passwords match
+      if (passwordController.text == confirmPasswordController.text) {
+        // Create user with email and password
+        UserCredential userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+
+        // Add additional user data to Firestore
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userCredential.user!.uid)
+            .set({
+          'email': emailController.text,
+          'role': 'buyer', // Set the role as buyer
+        });
+
+        // Navigate to the buyer home page after successful registration
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => BuyerLoginPage()),
+        );
+      } else {
+        // Passwords do not match, show error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Passwords do not match'),
+          ),
+        );
+      }
+    } catch (error) {
+      // Handle registration errors
+      print('Registration failed: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Registration failed: $error'),
+        ),
+      );
+    } finally {
+      setState(() {
+        isLoading =
+            false; // Set loading to false when registration is completed or failed
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Buyer Register'),
+        title: const Text('Buyer Register'),
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
+                const Text(
                   'Register Here!',
                   style: TextStyle(
                     fontFamily: 'Poppins',
@@ -26,97 +95,95 @@ class BuyerRegisterPage extends StatelessWidget {
                     letterSpacing: 0.0,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30.0,
                 ),
-                Text(
-                  'Please enter your details here to create a new account',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                    height: 23.0 / 15.0,
-                    letterSpacing: 0.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 20.0),
+                // Email TextField
                 SizedBox(
                   width: 325.0,
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 100, 98, 95)),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 100, 98, 95)),
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
+                // Password TextField
                 SizedBox(
                   width: 325.0,
                   child: TextField(
+                    controller: passwordController,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromARGB(255, 147, 151, 143)),
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     obscureText: true, // Hide the password
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
+                // Confirm Password TextField
                 SizedBox(
                   width: 325.0,
                   child: TextField(
+                    controller: confirmPasswordController,
                     decoration: InputDecoration(
                       labelText: 'Confirm Password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromARGB(255, 147, 151, 143)),
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                     obscureText: true, // Hide the password
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
+                // Register Button with loading indicator
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                    // Add your login functionality here
-                  },
+                  onPressed: isLoading
+                      ? null
+                      : registerUser, // Disable button if loading
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 203, 121, 39),
-                    minimumSize: Size(350, 50),
+                    backgroundColor: const Color.fromARGB(255, 203, 121, 39),
+                    minimumSize: const Size(350, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                   ),
-                  child: Text(
-                    'Next',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Poppins',
-                      fontSize: 18,
-                    ),
-                  ),
+                  child: isLoading
+                      ? const CircularProgressIndicator() // Show loading indicator if isLoading is true
+                      : const Text(
+                          'Sign up',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 18,
+                          ),
+                        ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
+                // Sign In Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Already have an account ',
                       style: TextStyle(
                           color: Colors.black, fontStyle: FontStyle.italic),
@@ -125,7 +192,7 @@ class BuyerRegisterPage extends StatelessWidget {
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: const Text(
                         'Sign In',
                         style: TextStyle(
                             color: Color.fromARGB(255, 200, 128, 51),
