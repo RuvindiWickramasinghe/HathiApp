@@ -408,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Garden Services'),
+                                  'Garden Services'),//Garden services button
                             ],
                           ),
                         ],
