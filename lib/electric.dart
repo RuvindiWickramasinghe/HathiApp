@@ -1,50 +1,49 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/buyer_home.dart';
+import 'package:hathi_app/buyer_home.dart';
 
-class electric extends StatefulWidget {
-  const electric({super.key});
+import 'main.dart';
+
+class Electric extends StatefulWidget {
+  const Electric({Key? key}) : super(key: key);
 
   @override
-  State<electric> createState() => _electricState();
+  State<Electric> createState() => _ElectricServicesState();
 }
 
-class _electricState extends State<electric> {
+class _ElectricServicesState extends State<Electric> {
   bool isSearching = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(253, 255, 241, 1),
+      backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
       appBar: AppBar(
         title: !isSearching
-          ? Center(child: Text("HATHI"))
-          : TextField(decoration: InputDecoration(
-                hintText: "Search"
+            ? const Center(child: Text("HATHI"))
+            : const TextField(
+                decoration: InputDecoration(hintText: "Search"),
               ),
-            ),
-        foregroundColor: Color.fromRGBO(255, 138, 0, 1),
-        backgroundColor: Color.fromRGBO(253, 255, 241, 1),
+        foregroundColor: const Color.fromRGBO(255, 138, 0, 1),
+        backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
         actions: [
           IconButton(
             onPressed: () {
               setState(() {
-                this.isSearching = !this.isSearching;
+                isSearching = !isSearching;
               });
             },
-            icon: Icon(Icons.search),
-            ),
+            icon: const Icon(Icons.search),
+          ),
         ],
       ),
-
-//this is the menu//
-
       drawer: Drawer(
-        backgroundColor: Color.fromRGBO(232, 99, 70, 1),
+        backgroundColor: const Color.fromRGBO(232, 99, 70, 1),
         child: ListView(
           children: [
-            InkWell(
+            const InkWell(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(0.0,30.0,0.0,15.0),
+                padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
                 child: Row(
                   children: [
                     Expanded(
@@ -52,32 +51,32 @@ class _electricState extends State<electric> {
                         Icons.arrow_back_ios,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:3,
-                        child:Text(
-                          "Menu",
-                          style: TextStyle(
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        "Menu",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 35,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
-
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
                 );
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
                   children: [
@@ -86,62 +85,36 @@ class _electricState extends State<electric> {
                         Icons.home,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:2,
-                        child:Text(
-                          "Home",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
-                  ],
-                ),
-                ),
-            ),
-            
-            InkWell(
-              onTap: (){
-                print("clicked");
-              },
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Row(
-                  children: [
+                    ),
                     Expanded(
-                      child: Icon(
-                        Icons.person,
-                        size: 28.0,
-                        color: Colors.white,
-                        ),
-                      ),
-                      Expanded(
-                        flex:2,
-                        child:Text(
-                          "Profile",
-                          style: TextStyle(
+                      flex: 2,
+                      child: Text(
+                        "Home",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
-
-            SizedBox(height: 450.0,width: 10.0,),
-
+            const SizedBox(
+              height: 450.0,
+              width: 10.0,
+            ),
             InkWell(
-              onTap: (){
-                print("clicked");
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const hathiApp(),
+                  ),
+                );
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
                   children: [
@@ -150,50 +123,113 @@ class _electricState extends State<electric> {
                         Icons.logout,
                         size: 28.0,
                         color: Colors.white,
-                        ),
                       ),
-                      Expanded(
-                        flex:2,
-                        child:Text(
-                          "Logout",
-                          style: TextStyle(
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        "Logout",
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
-                            fontWeight: FontWeight.bold
-                          ),
-                          ),
-                      )
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
                   ],
                 ),
-                ),
+              ),
             ),
           ],
         ),
       ),
-
-//this is the body//
       body: Center(
         child: Column(
           children: [
-            SizedBox(width: 1,height: 10,),
+            const SizedBox(
+              width: 1,
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Title(color: Colors.black,
-                        child: Text(
-                          "Electric Services",
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold
+                Title(
+                  color: Colors.black,
+                  child: const Text(
+                    "Electrical services",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection('ads')
+                    .where('category', isEqualTo: 'Electrical services')
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  }
+                  final ads = snapshot.data!.docs;
+                  return ListView.builder(
+                    itemCount: ads.length,
+                    itemBuilder: (context, index) {
+                      final ad = ads[index];
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 4,
+                          child: ListTile(
+                            title: Text(
+                              ad['serviceHeading'],
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Category: ${ad['category']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'City: ${ad['city']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'Description: ${ad['description']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'Contact Number: ${ad['contactNumber']}',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  'Price: ${ad['price']}LKR',
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-              ],
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),
       ),
-      
     );
   }
 }
