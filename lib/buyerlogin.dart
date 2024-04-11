@@ -1,9 +1,8 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'buyer_register.dart'; // Updated file name to match convention
-import 'buyer_home.dart'; // Updated file name to match convention
+import 'buyerRegister.dart';
+import 'buyer_home.dart';
 
 class BuyerLoginPage extends StatefulWidget {
   const BuyerLoginPage({Key? key}) : super(key: key);
@@ -37,7 +36,7 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
       print('Sign-in failed: $error');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Sign-in failed: $error'), // Improved error message
+          content: Text('Sign-in failed: $error'),
         ),
       );
     } finally {
@@ -67,6 +66,8 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
                     fontSize: 36.0,
                     fontWeight: FontWeight.w800,
                     color: Color.fromARGB(255, 219, 80, 33),
+                    height: 54.0 / 36.0,
+                    letterSpacing: 0.0,
                   ),
                 ),
                 const SizedBox(
@@ -79,39 +80,71 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
                     color: Colors.black,
+                    height: 23.0 / 15.0,
+                    letterSpacing: 0.0,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20.0),
-                _buildTextField(
-                  controller: emailController,
-                  labelText: 'Email',
-                ),
-                const SizedBox(height: 20.0),
-                _buildTextField(
-                  controller: passwordController,
-                  labelText: 'Password',
-                  obscureText: true,
-                ),
-                const SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        // Add functionality for "Forget Password"
-                      },
-                      child: const Text(
-                        'Forget Password?',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Poppins',
+                SizedBox(
+                  width: 325.0,
+                  child: TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 100, 98, 95),
                         ),
                       ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
-                  ],
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                SizedBox(
+                  width: 325.0,
+                  child: TextField(
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 147, 151, 143),
+                        ),
+                      ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
+                    ),
+                    obscureText: true,
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                Padding(
+                  padding: const EdgeInsets.only(right: 35.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // Add functionality for "Forget Password"
+                        },
+                        child: const Text(
+                          'Forget Password?',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20.0),
                 ElevatedButton(
@@ -168,31 +201,6 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String labelText,
-    bool obscureText = false,
-  }) {
-    return SizedBox(
-      width: 325.0,
-      child: TextField(
-        controller: controller,
-        decoration: InputDecoration(
-          labelText: labelText,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(
-              color: Color.fromARGB(255, 100, 98, 95),
-            ),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-        ),
-        obscureText: obscureText,
-        textAlign: TextAlign.center,
       ),
     );
   }
