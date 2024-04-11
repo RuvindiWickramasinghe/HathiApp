@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Domestic Services'),
+                                  'Domestic Services'),//Domestic services button
                             ],
                           ),
                         ],
@@ -245,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Events &\n Entertainment'),
+                                  'Events &\n Entertainment'), //Events and entertainment button
                             ],
                           ),
                         ],
@@ -304,7 +304,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Vehicle Services'),
+                                  'Vehicle Services'),//Vehicle services button
                             ],
                           ),
                         ],
@@ -350,7 +350,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Electrical Services'),
+                                  'Electrical Services'),//Electrical service button
                             ],
                           ),
                         ],
@@ -408,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Garden Services'),
+                                  'Garden Services'),//Garden services button
                             ],
                           ),
                         ],
