@@ -4,9 +4,12 @@ import 'package:hathi_app/buyer_home.dart';
 
 import 'main.dart';
 
+// StatefulWidget for managing stateful UI for domestic services
 class DomesticServices extends StatefulWidget {
+  // Constructor for DomesticServices widget
   const DomesticServices({Key? key}) : super(key: key);
 
+  // Override createState() method to create corresponding State class
   @override
   State<DomesticServices> createState() => _DomesticServicesState();
 }
