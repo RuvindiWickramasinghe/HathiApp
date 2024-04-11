@@ -9,34 +9,41 @@ import 'buyerlogin.dart';
 import 'seller_login.dart';
 import 'splashscreen.dart';
 
+// Main function, entry point of the application
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase
   await Firebase.initializeApp();
+  
+  // Initialize the app
   await _initializeApp();
+  
+  // Run the app
   runApp(const MyApp());
 }
 
+// Function to initialize the app
 Future<void> _initializeApp() async {
   // Request necessary permissions here
   await _requestPermissions();
 }
 
+// Function to request permissions
 Future<void> _requestPermissions() async {
   try {
-    // Request camera and photo library permissions
+    // Request camera permission
     Map<Permission, PermissionStatus> statuses = await [
       Permission.camera,
     ].request();
 
-    // Check if permissions are granted
+    // Check if camera permission is granted
     if (statuses[Permission.camera] == PermissionStatus.granted) {
-      // Both camera and photo library permissions are granted
-      print(
-          'Camera and photo library permissions granted. Proceed to the next steps in your app.');
+      // Camera permission granted
+      print('Camera permission granted.');
     } else {
-      // Handle the case where one or both permissions are not granted
-      // You may want to show an alert to inform the user or take appropriate actions
-      print('Camera and/or photo library permissions not granted.');
+      // Camera permission not granted
+      print('Camera permission not granted.');
     }
   } catch (e) {
     // Handle exceptions if there are any issues with the permission request
@@ -44,6 +51,7 @@ Future<void> _requestPermissions() async {
   }
 }
 
+// Main application widget
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -54,7 +62,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      initialRoute: '/splash', // Set the initial route to SplashScreen
+      // Set the initial route to SplashScreen
+      initialRoute: '/splash',
+      // Define routes
       routes: {
         '/splash': (context) => const SplashScreen(),
         '/home': (context) => const hathiApp(),
@@ -64,6 +74,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Widget for the main screen of the app
 class hathiApp extends StatelessWidget {
   const hathiApp({super.key});
 
@@ -97,7 +108,7 @@ class hathiApp extends StatelessWidget {
                     const SizedBox(
                       height: 30.0,
                     ),
-                    // Replace text fields with buttons
+                    // Button for Buyer login
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -123,6 +134,7 @@ class hathiApp extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20.0),
+                    // Button for Seller login
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
