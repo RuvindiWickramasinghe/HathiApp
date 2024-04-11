@@ -206,3 +206,201 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
   }
 }
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+import 'buyer_register.dart'; // Updated file name to match convention
+import 'buyer_home.dart'; // Updated file name to match convention
+
+class BuyerLoginPage extends StatefulWidget {
+  const BuyerLoginPage({Key? key}) : super(key: key);
+
+  @override
+  _BuyerLoginPageState createState() => _BuyerLoginPageState();
+}
+
+class _BuyerLoginPageState extends State<BuyerLoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool isLoading = false;
+
+  void signInUser() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    } catch (error) {
+      print('Sign-in failed: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Sign-in failed: $error'), // Improved error message
+        ),
+      );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Buyer Login'),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text(
+                  'Welcome Back!',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 36.0,
+                    fontWeight: FontWeight.w800,
+                    color: Color.fromARGB(255, 219, 80, 33),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30.0,
+                ),
+                const Text(
+                  'Enter your E-mail and password to continue browsing.',
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20.0),
+                _buildTextField(
+                  controller: emailController,
+                  labelText: 'Email',
+                ),
+                const SizedBox(height: 20.0),
+                _buildTextField(
+                  controller: passwordController,
+                  labelText: 'Password',
+                  obscureText: true,
+                ),
+                const SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // Add functionality for "Forget Password"
+                      },
+                      child: const Text(
+                        'Forget Password?',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20.0),
+                ElevatedButton(
+                  onPressed: isLoading ? null : signInUser,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 203, 121, 39),
+                    minimumSize: const Size(350, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  child: isLoading
+                      ? const CircularProgressIndicator()
+                      : const Text(
+                          'Sign In',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 18,
+                          ),
+                        ),
+                ),
+                const SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Not a Member? ',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BuyerRegisterPage(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Register Now',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 200, 128, 51),
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String labelText,
+    bool obscureText = false,
+  }) {
+    return SizedBox(
+      width: 325.0,
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: const BorderSide(
+              color: Color.fromARGB(255, 100, 98, 95),
+            ),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+        ),
+        obscureText: obscureText,
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}
