@@ -1,12 +1,11 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'seller_ads.dart'; // Updated file name to match convention
-import 'seller_registration.dart'; // Updated file name to match convention
+import 'sellerAds.dart';
+import 'sellerReg.dart';
 
 class SellerLoginPage extends StatefulWidget {
-  const SellerLoginPage({Key? key}) : super(key: key); // Fixed constructor
+  const SellerLoginPage({super.key});
 
   @override
   _SellerLoginPageState createState() => _SellerLoginPageState();
@@ -29,8 +28,9 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
         password: password,
       );
 
-      // For demonstration purpose, assuming all users are sellers
-      bool isSeller = true;
+      // Check if the user is a seller (You may need to store user roles in Firestore and check here)
+      bool isSeller =
+          true; // For demonstration purpose, assuming all users are sellers
 
       // Navigate to appropriate page based on user type
       if (isSeller) {
@@ -45,7 +45,7 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
       // Display error message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to sign in: $e'), // Improved error message
+          content: Text('Failed to sign in: $e'),
           backgroundColor: Colors.red,
         ),
       );
@@ -72,99 +72,153 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
+                const Text(
                   'Welcome Seller!',
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 36.0,
                     fontWeight: FontWeight.w800,
-                    color: const Color(0xFF6CB523),
+                    color: Color(0xFF6CB523),
+                    height: 54.0 / 36.0, // Line height
+                    letterSpacing: 0.0,
                   ),
                 ),
                 const SizedBox(
                   height: 30.0,
                 ),
-                Text(
+                const Text(
                   'Enter the username and password given by Hathi.',
                   style: TextStyle(
                     fontSize: 17.0,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400,
-                    color: const Color.fromARGB(255, 92, 87, 87),
+                    color: Color.fromARGB(255, 92, 87, 87),
+                    height: 23.0 / 17.0,
+                    letterSpacing: 0.0,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20.0),
-                _buildTextField(
-                  controller: usernameController,
-                  labelText: 'Username',
-                ),
-                const SizedBox(height: 20.0),
-                _buildTextField(
-                  controller: passwordController,
-                  labelText: 'Password',
-                  obscureText: true,
-                ),
-                const SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        // Add functionality for "Forget Password"
-                      },
-                      child: const Text(
-                        'Forget Password?',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Poppins',
+                SizedBox(
+                  width: 325.0,
+                  child: TextField(
+                    controller: usernameController,
+                    decoration: InputDecoration(
+                      labelText: 'Username',
+                      labelStyle: const TextStyle(
+                        color: Color(0xFF6CB523),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(color: Color(0xFF6CB523)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                          color: Color(0xFF6CB523),
                         ),
                       ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
-                  ],
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: _isLoading
-                      ? null
-                      : () {
-                          String username = usernameController.text.trim();
-                          String password = passwordController.text;
-
-                          if (username.isNotEmpty && password.isNotEmpty) {
-                            _signIn(context, username, password);
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                    'Please enter username and password'),
-                                backgroundColor: Colors.red,
-                              ),
-                            );
-                          }
-                        },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6CB523),
-                    minimumSize: const Size(350, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+                SizedBox(
+                  width: 325.0,
+                  child: TextField(
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: const TextStyle(
+                        color: Color(0xFF6CB523),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(color: Color(0xFF6CB523)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                          color: Color(0xFF6CB523),
+                        ),
+                      ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
+                    obscureText: true, // Hide the password
+                    textAlign: TextAlign.center,
                   ),
-                  child: _isLoading
-                      ? const CircularProgressIndicator(
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.white),
-                        )
-                      : const Text(
-                          'Sign In',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Poppins',
-                            fontSize: 18,
+                ),
+                const SizedBox(height: 20.0),
+                Padding(
+                  padding: const EdgeInsets.only(right: 35.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            // Add functionality for "Forget Password"
+                          },
+                          child: const Text(
+                            'Forget Password?',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: ElevatedButton(
+                    onPressed: _isLoading
+                        ? null
+                        : () {
+                            String username = usernameController.text.trim();
+                            String password = passwordController.text;
+
+                            if (username.isNotEmpty && password.isNotEmpty) {
+                              _signIn(context, username, password);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                      'Please enter username and password'),
+                                  backgroundColor: Colors.red,
+                                ),
+                              );
+                            }
+                          },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF6CB523),
+                      minimumSize: const Size(350, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                    child: _isLoading
+                        ? const CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white),
+                          )
+                        : const Text(
+                            'Sign In',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                            ),
+                          ),
+                  ),
                 ),
                 const SizedBox(height: 20.0),
                 Row(
@@ -173,24 +227,35 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
                     const Text(
                       'Not a Member? ',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontStyle: FontStyle.italic,
-                      ),
+                          color: Colors.black, fontStyle: FontStyle.italic),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SellerReg(),
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SellerReg(key: GlobalKey()),
+                            ), // Using a different name for the destination page
+                          );
+                        },
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    SellerReg(key: GlobalKey()),
+                              ),
+                            );
+                          },
+                         child: const Text(
+                            'Register Now',
+                            style: TextStyle(
+                                color: Color(0xFF6CB523),
+                                fontStyle: FontStyle.italic),
                           ),
-                        );
-                      },
-                      child: const Text(
-                        'Register Now',
-                        style: TextStyle(
-                          color: Color(0xFF6CB523),
-                          fontStyle: FontStyle.italic,
                         ),
                       ),
                     ),
@@ -203,36 +268,4 @@ class _SellerLoginPageState extends State<SellerLoginPage> {
       ),
     );
   }
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String labelText,
-    bool obscureText = false,
-  }) {
-    return SizedBox(
-      width: 325.0,
-      child: TextField(
-        controller: controller,
-        decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: const TextStyle(
-            color: Color(0xFF6CB523),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(color: Color(0xFF6CB523)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: const BorderSide(
-              color: Color(0xFF6CB523),
-            ),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-        ),
-        obscureText: obscureText,
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
+} 
