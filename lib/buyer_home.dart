@@ -248,7 +248,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(
                                   style: TextStyle(fontWeight: FontWeight.bold),
-                                  'Events &\n Entertainment'), 
+                                  'Events &\n Entertainment'), //Events and entertainment button
                             ],
                           ),
                         ],
