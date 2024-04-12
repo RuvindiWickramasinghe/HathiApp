@@ -65,7 +65,7 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
                     fontFamily: 'Poppins',
                     fontSize: 36.0,
                     fontWeight: FontWeight.w800,
-                    color: Color.fromARGB(255, 219, 80, 33),
+                    color: Color.fromARGB
                     height: 54.0 / 36.0,
                     letterSpacing: 0.0,
                   ),
