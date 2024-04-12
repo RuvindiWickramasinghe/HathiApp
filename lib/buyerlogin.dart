@@ -161,7 +161,7 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
                       : const Text(
                           'Sign In',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontFamily: 'Poppins',
                             fontSize: 18,
                           ),
