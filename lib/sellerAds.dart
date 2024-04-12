@@ -593,4 +593,14 @@ class _SellerAdPageState extends State<SellerAdPage> {
 }
 
   }
+
+  Future<void> updateUserProfile(String userId, Map<String, dynamic> userData) async {
+  try {
+    await FirebaseFirestore.instance.collection('users').doc(userId).update(userData);
+    print('User profile updated successfully');
+  } catch (e) {
+    print('Error updating user profile: $e');
+  }
+}
+
 }
