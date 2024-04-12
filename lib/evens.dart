@@ -22,7 +22,7 @@ class _DomesticServicesState extends State<Events> {
         title: !isSearching
             ? const Center(child: Text("HATHI"))
             : const TextField(
-                decoration: InputDecoration(hintText: "Search"),
+                decoration: InputDecoration(hintText: "Searchhh"),
               ),
         foregroundColor: const Color.fromRGBO(255, 138, 0, 1),
         backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
