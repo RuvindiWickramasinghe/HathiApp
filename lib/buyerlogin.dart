@@ -174,7 +174,7 @@ class _BuyerLoginPageState extends State<BuyerLoginPage> {
                     const Text(
                       'Not a Member? ',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontStyle: FontStyle.italic,
                       ),
                     ),
