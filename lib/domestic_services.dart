@@ -4,12 +4,9 @@ import 'package:hathi_app/buyer_home.dart';
 
 import 'main.dart';
 
-// StatefulWidget for managing stateful UI for domestic services
 class DomesticServices extends StatefulWidget {
-  // Constructor for DomesticServices widget
   const DomesticServices({Key? key}) : super(key: key);
 
-  // Override createState() method to create corresponding State class
   @override
   State<DomesticServices> createState() => _DomesticServicesState();
 }
@@ -31,11 +28,7 @@ class _DomesticServicesState extends State<DomesticServices> {
         backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
         actions: [
           IconButton(
-            onPressed: () {
-              setState(() {
-                isSearching = !isSearching;
-              });
-            },
+            onPressed: toggleSearch,
             icon: const Icon(Icons.search),
           ),
         ],
@@ -234,5 +227,12 @@ class _DomesticServicesState extends State<DomesticServices> {
         ),
       ),
     );
+  }
+
+  // Function to toggle the search functionality
+  void toggleSearch() {
+    setState(() {
+      isSearching = !isSearching;
+    });
   }
 }
