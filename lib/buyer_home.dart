@@ -690,7 +690,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       flex: 2,
                       child: Text(
-                        "Logout! ",
+                        "Logout",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
