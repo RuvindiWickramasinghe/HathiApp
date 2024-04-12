@@ -17,47 +17,42 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  bool isLoading = false; // Add a boolean to track loading state
+  bool isLoading = false; 
 
   void registerUser() async {
     setState(() {
-      isLoading = true; // Set loading to true when registration begins
+      isLoading = true; 
     });
 
     try {
-      // Check if passwords match
-      if (passwordController.text == confirmPasswordController.text) {
-        // Create user with email and password
+      if (_isValidEmail(emailController.text) &&
+          passwordController.text == confirmPasswordController.text) {
         UserCredential userCredential =
             await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text,
           password: passwordController.text,
         );
 
-        // Add additional user data to Firestore
         await FirebaseFirestore.instance
             .collection('users')
             .doc(userCredential.user!.uid)
             .set({
           'email': emailController.text,
-          'role': 'buyer', // Set the role as buyer
+          'role': 'buyer',
         });
 
-        // Navigate to the buyer home page after successful registration
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => BuyerLoginPage()),
         );
       } else {
-        // Passwords do not match, show error message
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Passwords do not match'),
+            content: Text('Invalid email or passwords do not match'),
           ),
         );
       }
     } catch (error) {
-      // Handle registration errors
       print('Registration failed: $error');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -66,8 +61,7 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
       );
     } finally {
       setState(() {
-        isLoading =
-            false; // Set loading to false when registration is completed or failed
+        isLoading = false;
       });
     }
   }
@@ -92,14 +86,13 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
                     fontSize: 36.0,
                     fontWeight: FontWeight.w800,
                     color: Color.fromARGB(255, 219, 80, 33),
-                    height: 54.0 / 36.0, // Line height
+                    height: 54.0 / 36.0, 
                     letterSpacing: 0.0,
                   ),
                 ),
                 const SizedBox(
                   height: 30.0,
                 ),
-                // Email TextField
                 SizedBox(
                   width: 325.0,
                   child: TextField(
@@ -118,7 +111,6 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                // Password TextField
                 SizedBox(
                   width: 325.0,
                   child: TextField(
@@ -133,11 +125,10 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
-                    obscureText: true, // Hide the password
+                    obscureText: true,
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                // Confirm Password TextField
                 SizedBox(
                   width: 325.0,
                   child: TextField(
@@ -152,15 +143,14 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10.0),
                     ),
-                    obscureText: true, // Hide the password
+                    obscureText: true,
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                // Register Button with loading indicator
                 ElevatedButton(
                   onPressed: isLoading
                       ? null
-                      : registerUser, // Disable button if loading
+                      : registerUser,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 203, 121, 39),
                     minimumSize: const Size(350, 50),
@@ -169,7 +159,7 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
                     ),
                   ),
                   child: isLoading
-                      ? const CircularProgressIndicator() // Show loading indicator if isLoading is true
+                      ? const CircularProgressIndicator() 
                       : const Text(
                           'Sign up',
                           style: TextStyle(
@@ -180,7 +170,6 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
                         ),
                 ),
                 const SizedBox(height: 20.0),
-                // Sign In Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -209,4 +198,20 @@ class _BuyerRegisterPageState extends State<BuyerRegisterPage> {
       ),
     );
   }
+
+  // Function to validate email format
+  bool _isValidEmail(String email) {
+    // Regular expression for email validation
+    final RegExp emailRegExp =
+        RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+
+    return emailRegExp.hasMatch(email);
+  }
+  // Function to validate password format
+bool _isValidPassword(String password) {
+  // Regular expression for password validation (at least 8 characters, including one uppercase letter, one lowercase letter, and one digit)
+  final RegExp passwordRegExp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
+
+  return passwordRegExp.hasMatch(password);
+}
 }
