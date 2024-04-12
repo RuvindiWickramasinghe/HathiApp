@@ -118,7 +118,7 @@ class hathiApp extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            const Color.fromARGB(255, 214, 128, 23),
+                            const Color.fromARGB(255, 214, 128, 28),
                         minimumSize: const Size(325, 50),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
