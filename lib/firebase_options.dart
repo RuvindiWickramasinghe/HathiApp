@@ -43,39 +43,71 @@ class DefaultFirebaseOptions {
     }
   }
 
+  // FirebaseOptions for web platform
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBD2_IjILply77v-xR8ILywJQD-cqyg_Ng',
-    appId: '1:258494958396:web:f936b6b2647492d388ac39',
-    messagingSenderId: '258494958396',
-    projectId: 'hathiapp-5180a',
-    authDomain: 'hathiapp-5180a.firebaseapp.com',
-    storageBucket: 'hathiapp-5180a.appspot.com',
-    measurementId: 'G-0EM70E5DEH',
+    apiKey: 'YOUR_WEB_API_KEY',
+    appId: 'YOUR_WEB_APP_ID',
+    messagingSenderId: 'YOUR_WEB_MESSAGING_SENDER_ID',
+    projectId: 'YOUR_WEB_PROJECT_ID',
+    authDomain: 'YOUR_WEB_AUTH_DOMAIN',
+    storageBucket: 'YOUR_WEB_STORAGE_BUCKET',
+    measurementId: 'YOUR_WEB_MEASUREMENT_ID',
   );
 
+  // FirebaseOptions for Android platform
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCmR9QcGhgPXRGnxREgzMH1e4NB1hVNvgY',
-    appId: '1:258494958396:android:301acb2eec4619e788ac39',
-    messagingSenderId: '258494958396',
-    projectId: 'hathiapp-5180a',
-    storageBucket: 'hathiapp-5180a.appspot.com',
+    apiKey: 'YOUR_ANDROID_API_KEY',
+    appId: 'YOUR_ANDROID_APP_ID',
+    messagingSenderId: 'YOUR_ANDROID_MESSAGING_SENDER_ID',
+    projectId: 'YOUR_ANDROID_PROJECT_ID',
+    storageBucket: 'YOUR_ANDROID_STORAGE_BUCKET',
   );
 
+  // FirebaseOptions for iOS platform
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCFLkwERmGINMxWMQxNGxBCjblYbr_rr6c',
-    appId: '1:258494958396:ios:cb33ff186a01f38488ac39',
-    messagingSenderId: '258494958396',
-    projectId: 'hathiapp-5180a',
-    storageBucket: 'hathiapp-5180a.appspot.com',
-    iosBundleId: 'com.example.flutterApplication1.RunnerTests',
+    apiKey: 'YOUR_IOS_API_KEY',
+    appId: 'YOUR_IOS_APP_ID',
+    messagingSenderId: 'YOUR_IOS_MESSAGING_SENDER_ID',
+    projectId: 'YOUR_IOS_PROJECT_ID',
+    storageBucket: 'YOUR_IOS_STORAGE_BUCKET',
+    iosBundleId: 'YOUR_IOS_BUNDLE_ID',
   );
 
+  // FirebaseOptions for macOS platform
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCFLkwERmGINMxWMQxNGxBCjblYbr_rr6c',
-    appId: '1:258494958396:ios:cb33ff186a01f38488ac39',
-    messagingSenderId: '258494958396',
-    projectId: 'hathiapp-5180a',
-    storageBucket: 'hathiapp-5180a.appspot.com',
-    iosBundleId: 'com.example.flutterApplication1.RunnerTests',
+    apiKey: 'YOUR_MACOS_API_KEY',
+    appId: 'YOUR_MACOS_APP_ID',
+    messagingSenderId: 'YOUR_MACOS_MESSAGING_SENDER_ID',
+    projectId: 'YOUR_MACOS_PROJECT_ID',
+    storageBucket: 'YOUR_MACOS_STORAGE_BUCKET',
+    iosBundleId: 'YOUR_MACOS_BUNDLE_ID',
   );
+
+  // Method to check if Firebase options are initialized for the current platform
+  static bool isInitializedForPlatform() {
+    try {
+      currentPlatform; // Call the getter to check platform initialization
+      return true; // If no error, platform is initialized
+    } catch (e) {
+      return false; // If error, platform is not initialized
+    }
+  }
+
+  // Method to reinitialize Firebase options for a specific platform
+  static FirebaseOptions reinitializePlatform(TargetPlatform platform) {
+    switch (platform) {
+      case TargetPlatform.android:
+        return android;
+      case TargetPlatform.iOS:
+        return ios;
+      case TargetPlatform.macOS:
+        return macos;
+      case TargetPlatform.web:
+        return web;
+      default:
+        throw UnsupportedError(
+          'Firebase options reinitialization is not supported for this platform.',
+        );
+    }
+  }
 }
