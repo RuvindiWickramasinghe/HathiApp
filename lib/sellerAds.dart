@@ -575,5 +575,22 @@ class _SellerAdPageState extends State<SellerAdPage> {
       // Handle errors
       print('Error posting ad: $e');
     }
+
+    Future<Map<String, dynamic>?> fetchUserDetails(String userId) async {
+  try {
+    final DocumentSnapshot<Map<String, dynamic>> userSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    if (userSnapshot.exists) {
+      return userSnapshot.data();
+    } else {
+      print('User not found');
+      return null;
+    }
+  } catch (e) {
+    print('Error fetching user details: $e');
+    return null;
+  }
+}
+
   }
 }
