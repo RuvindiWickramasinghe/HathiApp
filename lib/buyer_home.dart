@@ -10,7 +10,7 @@ import 'main.dart';
 import 'other.dart';
 import 'reviewSplash.dart';
 
-
+// StatefulWidget for the home page
 class HomePage extends StatefulWidget {
   // Constructor for HomePage widget
   const HomePage({super.key});
