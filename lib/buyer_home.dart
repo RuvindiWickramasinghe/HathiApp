@@ -583,7 +583,7 @@ class _HomePageState extends State<HomePage> {
             : const TextField(
                 decoration: InputDecoration(hintText: "Search"),
               ),
-        foregroundColor: const Color.fromRGBO(255, 138, 0, ),
+        foregroundColor: const Color.fromRGBO(255, 138, 0, 1),
         backgroundColor: const Color.fromRGBO(253, 255, 241, 1),
         actions: [
           IconButton(
