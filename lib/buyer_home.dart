@@ -391,7 +391,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           width: 2,
-                          color: const Color.fromRGBO(255, 138, 0, ),
+                          color: const Color.fromRGBO(255, 138, 0, 1),
                         ),
                       ),
                       child: const Column(
