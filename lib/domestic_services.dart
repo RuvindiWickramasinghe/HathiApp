@@ -64,14 +64,7 @@ class _DomesticServicesState extends State<DomesticServices> {
               ),
             ),
             InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              },
+              onTap: navigateToHome,
               child: const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Row(
@@ -229,10 +222,19 @@ class _DomesticServicesState extends State<DomesticServices> {
     );
   }
 
-  // Function to toggle the search functionality
   void toggleSearch() {
     setState(() {
       isSearching = !isSearching;
     });
+  }
+
+  // Function to navigate to the home screen
+  void navigateToHome() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+    );
   }
 }
