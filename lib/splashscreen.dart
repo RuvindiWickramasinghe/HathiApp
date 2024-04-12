@@ -23,12 +23,29 @@ class _SplashScreenState extends State<SplashScreen> {
     );
     // Call the initTasks function
     initTasks();
+    // Check if the user is already logged in
+    checkUserLoggedIn();
   }
 
   // Additional function to perform initialization tasks
   void initTasks() {
     // Perform your initialization tasks here
     print('Performing initialization tasks...');
+  }
+
+  // Additional function to check if the user is already logged in
+  void checkUserLoggedIn() {
+    // Implement your logic to check if the user is logged in
+    // For example, you can check if there is a saved token or user session
+    // If the user is logged in, you can navigate to the HomeScreen instead of SignInPage
+    bool isLoggedIn = false; // Placeholder for demonstration
+    if (isLoggedIn) {
+      // Navigate to the HomeScreen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    }
   }
 
   @override
